@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FeelWell — Duševní zdraví jako základ udržitelné společnosti</title>
+<meta name="description" content="FeelWell vzdělává děti a mladé dospělé v oblasti duševního zdraví prostřednictvím interaktivních médií — vlajkovým projektem je vážná digitální hra Daimoon.">
+<meta property="og:title" content="FeelWell — Duševní zdraví jako základ udržitelné společnosti">
+<meta property="og:description" content="Organizace odborníků na vzdělávání, duševní zdraví a sociální inovace. Poznejte náš projekt Daimoon.">
+<meta property="og:image" content="assets/img/feature.webp">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=3">
+</head>
+<body>
+
+<a class="skip-link" href="#hlavni">Přeskočit na obsah</a>
+
+<svg class="sprite-defs" aria-hidden="true" focusable="false">
+  <symbol id="dandelion" viewBox="0 0 64 64">
+    <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none">
+      <line x1="28" y1="36" x2="45.2" y2="35.2"/>
+      <line x1="28" y1="36" x2="42.9" y2="38.2"/>
+      <line x1="28" y1="36" x2="42.0" y2="44.7"/>
+      <line x1="28" y1="36" x2="38.8" y2="46.2"/>
+      <line x1="28" y1="36" x2="34.2" y2="47.7"/>
+      <line x1="28" y1="36" x2="33.8" y2="51.4"/>
+      <line x1="28" y1="36" x2="27.3" y2="52.7"/>
+      <line x1="28" y1="36" x2="22.3" y2="51.5"/>
+      <line x1="28" y1="36" x2="19.4" y2="48.0"/>
+      <line x1="28" y1="36" x2="18.1" y2="46.4"/>
+      <line x1="28" y1="36" x2="13.2" y2="43.8"/>
+      <line x1="28" y1="36" x2="12.5" y2="41.4"/>
+      <line x1="28" y1="36" x2="14.2" y2="35.4"/>
+      <line x1="28" y1="36" x2="11.8" y2="33.2"/>
+      <line x1="28" y1="36" x2="16.1" y2="29.4"/>
+      <line x1="28" y1="36" x2="16.1" y2="26.2"/>
+      <line x1="28" y1="36" x2="20.7" y2="20.7"/>
+      <line x1="28" y1="36" x2="22.7" y2="21.5"/>
+      <line x1="28" y1="36" x2="28.3" y2="22.4"/>
+      <line x1="28" y1="36" x2="33.8" y2="20.5"/>
+      <line x1="28" y1="36" x2="36.1" y2="22.9"/>
+      <line x1="28" y1="36" x2="38.4" y2="25.6"/>
+      <line x1="28" y1="36" x2="41.8" y2="29.8"/>
+      <line x1="28" y1="36" x2="40.7" y2="32.8"/>
+      <line x1="28" y1="36" x2="30.5" y2="20.0"/>
+      <line x1="28" y1="36" x2="24.0" y2="44.0"/>
+    </g>
+    <circle cx="28" cy="36" r="1.6" fill="currentColor"/>
+
+    <!-- two seeds mid-flight -->
+    <g stroke="currentColor" stroke-width="1.1" stroke-linecap="round" fill="none">
+      <path d="M42 33 Q47 25 52 17" stroke-dasharray="0.1 3.4" opacity="0.55"/>
+      <line x1="52" y1="17" x2="50.4" y2="10.7"/>
+      <line x1="52" y1="17" x2="54.0" y2="10.8"/>
+      <line x1="52" y1="17" x2="57.0" y2="12.9"/>
+      <line x1="52" y1="17" x2="58.5" y2="16.2"/>
+      <line x1="52" y1="17" x2="57.9" y2="19.8"/>
+    </g>
+    <circle cx="52" cy="17" r="1" fill="currentColor"/>
+
+    <g stroke="currentColor" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.85">
+      <path d="M40 27 Q49 18 57 10" stroke-dasharray="0.1 3.2" opacity="0.5"/>
+      <line x1="57" y1="10" x2="56.3" y2="5.0"/>
+      <line x1="57" y1="10" x2="59.4" y2="5.6"/>
+      <line x1="57" y1="10" x2="61.5" y2="7.9"/>
+      <line x1="57" y1="10" x2="61.9" y2="11.0"/>
+    </g>
+    <circle cx="57" cy="10" r="0.8" fill="currentColor" opacity="0.85"/>
+
+    <!-- stem -->
+    <path d="M27 51 C25 56 26 60 24 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<header class="site-header" id="top">
+  <div class="header-inner container">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#dandelion"></use></svg>
+      FeelWell
+    </a>
+
+    <nav class="main-nav" aria-label="Hlavní navigace">
+      <a href="#nas" class="nav-pill" data-color="mint">O nás</a>
+      <a href="#vize" class="nav-pill" data-color="coral">Vize</a>
+      <a href="#projekty" class="nav-pill" data-color="plum">Projekty</a>
+      <a href="#kontakt" class="nav-pill nav-pill--cta" data-color="blush">Kontakt</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilní navigace">
+    <a href="#nas" data-color="mint">O nás</a>
+    <a href="#vize" data-color="coral">Vize</a>
+    <a href="#projekty" data-color="plum">Projekty</a>
+    <a href="#kontakt" data-color="blush">Kontakt</a>
+  </nav>
+</header>
+
+<main id="hlavni">
+
+  <!-- 1. LANDING -->
+  <section class="hero">
+    <div class="hero-glass" aria-hidden="true">
+      <span class="hero-glow hero-glow--mint"></span>
+      <span class="hero-glow hero-glow--coral"></span>
+      <span class="hero-glow hero-glow--blush"></span>
+      <span class="hero-glass-pane"></span>
+    </div>
+    <div class="container">
+      <div class="hero-inner">
+        <h1 class="vf-heading reveal">Duševní zdraví je&nbsp;premisou<br>společenské udržitelnosti.</h1>
+        <p class="hero-lead reveal">
+          Vzděláváme děti a mladé dospělé v oblasti duševního zdraví prostřednictvím
+          interaktivních médií — hravě, citlivě a ve spolupráci s odborníky.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#trailer" class="btn btn--primary">Přehrát trailer</a>
+          <a href="#projekty" class="btn btn--ghost">Poznat projekt Daimoon</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. VIDEO TRAILER -->
+  <section class="trailer" id="trailer">
+    <div class="trailer-rings" aria-hidden="true">
+      <span class="ring ring--1"></span>
+      <span class="ring ring--2"></span>
+      <span class="dot dot--coral"></span>
+      <span class="dot dot--mint"></span>
+      <span class="dot dot--coral2"></span>
+      <span class="dot dot--mint2"></span>
+    </div>
+
+    <div class="container trailer-grid">
+      <div class="trailer-copy reveal">
+        <p class="eyebrow eyebrow--light">Náš vlajkový projekt</p>
+        <img src="assets/img/logo.png" alt="Daimoon" class="game-logo" width="180" height="38">
+        <h2 class="vf-heading vf-heading--glow">Hra, která<br>učí cítit.</h2>
+        <p>
+          Vážná digitální hra o duševním zdraví pro teenagery a mladé dospělé.
+          Vyvíjena ve spolupráci s odborníky a s podporou Národního ústavu
+          duševního zdraví a projektu Nevypusť duši.
+        </p>
+        <a href="#projekty" class="btn btn--outline-light">Více o hře</a>
+      </div>
+
+      <div class="trailer-video reveal">
+        <div class="phone-frame">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <video
+            id="teaserVideo"
+            poster="assets/img/teaser-poster.jpg"
+            controls
+            playsinline
+            preload="metadata">
+            <source src="assets/video/daimoon-teaser.mp4" type="video/mp4">
+          </video>
+          <button class="play-btn" id="playBtn" aria-label="Přehrát trailer">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O NÁS -->
+  <section class="pillar pillar--mint pillar--photo" id="nas">
+    <div class="pillar-text-col">
+      <div class="pillar-text">
+        <h2 class="vf-heading">Kdo je FeelWell</h2>
+        <p>
+          Jsme organizace složená z odborníků na vzdělávání, duševní zdraví
+          a sociální inovace. Chceme řešit enormní nárůst psychických potíží
+          mezi dospělými i dětmi. Považujeme toto téma za společensky zcela zásadní.
+        </p>
+        <p>
+          Na základě dosavadní trajektorie i postupného odhalování příčin lze
+          důvodně očekávat pokračování tohoto trendu, a pokud nedojde k potřebným
+          pozitivním změnám, destruktivní dopady na úrovni individuální, rodinné
+          i společenské budou narůstat.
+        </p>
+      </div>
+    </div>
+    <div class="pillar-media-col reveal">
+      <img src="assets/img/nas-photo.webp" alt="Lektorka vysvětluje látku u tabule v prosluněné učebně" loading="lazy">
+    </div>
+  </section>
+
+  <!-- VIZE -->
+  <section class="pillar pillar--coral pillar--photo pillar--photo-reverse" id="vize">
+    <div class="pillar-text-col">
+      <div class="pillar-text">
+        <h2 class="vf-heading">Proč na tom záleží</h2>
+        <p>
+          Pandemie Covid-19 vyvolala kromě jiného také nárůst psychických obtíží,
+          se kterými se musela vyrovnávat významná část populace.
+        </p>
+        <p>
+          Od lidí, kteří se rázem ocitli v existenční nouzi, přes ty, kdo se ocitli
+          ve stavu vysoké míry izolace, rodiny těžko se vyrovnávající s ponorkovou
+          situací, až po mladé lidi, jejichž sociální život se rázem zcela přenesl
+          do digitálního prostředí — se všemi omezeními a riziky, která to sebou nese.
+        </p>
+      </div>
+    </div>
+    <div class="pillar-media-col reveal">
+      <img src="assets/img/vize-photo.webp?v=2" alt="Děti šplhají po lanové konstrukci a drží se navzájem v protisvětle slunce" loading="lazy">
+    </div>
+  </section>
+
+  <!-- TÝM -->
+  <section class="pillar pillar--team" id="tym">
+    <div class="container">
+      <div class="pillar-inner">
+        <h2 class="vf-heading">Tým FeelWell</h2>
+        <p class="pillar-lead">
+          Odborníci na vzdělávání, duševní zdraví a sociální inovace, kteří stojí za projektem.
+        </p>
+      </div>
+
+      <div class="team-grid reveal">
+        <div class="team-card">
+          <div class="team-photo"><img src="assets/img/team/brunovsky.webp" alt="MUDr. Martin Brunovský, Ph.D." loading="lazy" width="520" height="650"></div>
+          <h3>MUDr. Martin Brunovský, Ph.D.</h3>
+          <p>Odborník v oblasti duševního zdraví (Národní ústav duševního zdraví, Psyon)</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="assets/img/team/kartous.webp" alt="Mgr. Bohumil Kartous, Ph.D." loading="lazy" width="520" height="650"></div>
+          <h3>Mgr. Bohumil Kartous, Ph.D.</h3>
+          <p>Prorektor Vysoké školy ekonomie a managementu, expert v oblasti vzdělávání a komunikace</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="assets/img/team/kubat.webp" alt="Mgr. Viktor Kubát, MBA" loading="lazy" width="520" height="650"></div>
+          <h3>Mgr. Viktor Kubát, MBA</h3>
+          <p>Projektový manažer, provozovatel sociální služby</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="assets/img/team/mannheimova.webp" alt="Mgr. Lucie Mannheimová" loading="lazy" width="520" height="650"></div>
+          <h3>Mgr. Lucie Mannheimová</h3>
+          <p>Psycholožka, UX researcher</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo"><img src="assets/img/team/sasinka.webp" alt="Mgr. Václav Šašinka" loading="lazy" width="520" height="650"></div>
+          <h3>Mgr. Václav Šašinka</h3>
+          <p>Psycholog se zaměřením na vzdělávání a psychoterapii, výzkumný pracovník</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTY -->
+  <section class="pillar pillar--plum" id="projekty">
+    <div class="container">
+      <div class="pillar-inner">
+      <h2 class="vf-heading vf-heading--glow light">Daimoon</h2>
+      <p class="pillar-lead light">
+        Prvním a ústředním projektem FeelWell je platforma a stejnojmenná
+        vážná digitální hra <strong>Daimoon</strong>, zabývající se duševním
+        zdravím a určená primárně pro teenagery a mladé dospělé.
+      </p>
+      <p class="light-soft">
+        Koncept vážné hry umožňuje zvýšit motivaci zabývat se duševním zdravím
+        (vlastním i lidí v blízkém okolí), osvojit si prvky péče o duševní zdraví
+        a psychohygieny, a zároveň propojit mladé lidi s poskytovateli péče
+        o duševní zdraví — hra jim pomůže seznámit se s ekosystémem péče
+        o duševní zdraví v Česku.
+      </p>
+      <p class="light-soft">
+        Smyslem digitální vážné hry i celé platformy je nabídnout inovativní
+        způsob intervence a edukace: preventivně snížit psychickou zátěž,
+        upozornit mladé lidi na stavy, během nichž je vhodné vyhledat pomoc,
+        a samotnou pomoc zprostředkovat. Hra vhodně doplňuje stávající nabídku
+        služeb partnerů — Národního ústavu duševního zdraví, projektu
+        Nevypusť duši a dalších.
+      </p>
+      </div>
+
+      <!-- Gallery (full container width) -->
+      <div class="gallery reveal" id="gallery" aria-label="Snímky ze hry Daimoon">
+        <button type="button" class="gallery-item" data-full="assets/img/screenshot3-full.webp">
+          <img src="assets/img/screenshot3.webp" alt="Postava mluví s rostlinným strážcem jezera ve hře Daimoon" loading="lazy" width="640" height="1138">
+        </button>
+        <button type="button" class="gallery-item" data-full="assets/img/screenshot1-full.webp">
+          <img src="assets/img/screenshot1.webp" alt="Zahrada s bylinkami a společníkem ve hře Daimoon" loading="lazy" width="640" height="1138">
+        </button>
+        <button type="button" class="gallery-item" data-full="assets/img/screenshot7-full.webp">
+          <img src="assets/img/screenshot7.webp" alt="Postava a housenka mezi pouštními skalami ve hře Daimoon" loading="lazy" width="640" height="1138">
+        </button>
+        <button type="button" class="gallery-item" data-full="assets/img/screenshot5-full.webp">
+          <img src="assets/img/screenshot5.webp" alt="Ztroskotaná vzducholoď v poušti ve hře Daimoon" loading="lazy" width="640" height="1138">
+        </button>
+        <button type="button" class="gallery-item" data-full="assets/img/screenshot2-full.webp">
+          <img src="assets/img/screenshot2.webp" alt="Průzkum krajiny s jezírkem ve hře Daimoon" loading="lazy" width="640" height="1138">
+        </button>
+        <button type="button" class="gallery-item" data-full="assets/img/screenshot4-full.webp">
+          <img src="assets/img/screenshot4.webp" alt="Sběr rostlin u ztroskotané lodi ve hře Daimoon" loading="lazy" width="640" height="1138">
+        </button>
+      </div>
+
+      <div class="pillar-inner">
+      <!-- Phases -->
+      <div class="phases reveal">
+        <div class="phase">
+          <span class="phase-tag phase-tag--done">Dokončeno</span>
+          <h3>Fáze 1 — Inkubace</h3>
+          <p class="light-soft">Výzkum, ověření konceptu a nastavení metodiky. Zjištění z inkubační fáze jsou k dispozici ve zprávách níže.</p>
+        </div>
+        <div class="phase">
+          <span class="phase-tag phase-tag--active">Probíhá</span>
+          <h3>Fáze 2 — Vývoj a implementace</h3>
+          <p class="light-soft">Vývoj hry a její následné zapojení do ekosystému péče o duševní zdraví v Česku. Finalizace projektu proběhne do poloviny roku 2027.</p>
+        </div>
+      </div>
+
+      <!-- Funding -->
+      <div class="funding reveal">
+        <img src="assets/img/eu-logo.png" alt="Vlajka Evropské unie" width="30" height="19">
+        <p class="light-soft">
+          Spolufinancováno <a href="https://www.feelwell.cz/_files/ugd/638ac9_7a230899fb204668b571b12247ecc36e.docx?dn=Publicita_Jdu%20do%20sebe.docx" target="_blank" rel="noopener">Evropskou unií</a><br>
+          Číslo projektu: <a href="https://www.podporujemeinovace.cz/jdu-do-sebe-2/" target="_blank" rel="noopener">CZ.03.03.01/00/23_051/0005145</a>
+        </p>
+      </div>
+
+      <!-- Reports -->
+      <div class="reports reveal">
+        <h3 class="light">Zprávy z projektu</h3>
+        <ul class="report-list">
+          <li><a href="https://www.feelwell.cz/_files/ugd/638ac9_5a447ac93ceb4340a843b5df300c0a9b.pdf" target="_blank" rel="noopener"><span>Souhrnná zpráva z inkubační fáze projektu</span><em>PDF ↗</em></a></li>
+          <li><a href="https://www.feelwell.cz/_files/ugd/638ac9_8ea6cebfc51b445086adcc5c5424e801.pdf" target="_blank" rel="noopener"><span>Souhrnné výsledky výzkumů</span><em>PDF ↗</em></a></li>
+          <li><a href="https://www.feelwell.cz/_files/ugd/638ac9_f529e1292b96467f94ec0eb52e0cb4aa.pdf" target="_blank" rel="noopener"><span>Statistické analýzy z výzkumu</span><em>PDF ↗</em></a></li>
+          <li><a href="https://www.feelwell.cz/_files/ugd/638ac9_84b5b8eb6f374eacb68929ef906760f3.pdf" target="_blank" rel="noopener"><span>Uživatelský výzkum</span><em>PDF ↗</em></a></li>
+          <li><a href="https://www.feelwell.cz/_files/ugd/638ac9_279e39987f754f928d31e1d710d763d4.xlsx?dn=FW%20Data%2C%20anonymizovan%C3%A1.xlsx" target="_blank" rel="noopener"><span>Data z výzkumu</span><em>XLSX ↗</em></a></li>
+          <li><a href="https://www.feelwell.cz/_files/ugd/638ac9_8227ca0212f6443ba91a5a19c5707f57.pdf" target="_blank" rel="noopener"><span>Záznamový arch z výzkumu</span><em>PDF ↗</em></a></li>
+          <li><a href="https://www.feelwell.cz/_files/ugd/638ac9_ac7784de048b45c4b27f7c004e88b912.pdf" target="_blank" rel="noopener"><span>Rešerše zahraničních projektů</span><em>PDF ↗</em></a></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="pillar pillar--blush" id="kontakt">
+    <div class="container">
+      <div class="pillar-inner pillar-inner--center">
+      <h2 class="vf-heading">Pojďme na tom<br>pracovat spolu.</h2>
+      <p class="pillar-lead">
+        Zastupujete školu, poradnu nebo organizaci a projekt vás zajímá?
+        Zanechte na sebe prosím kontakt — ozveme se vám.
+      </p>
+
+      <form class="contact-form" id="contactForm" novalidate>
+        <label for="email" class="sr-only">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+        <button type="submit" class="btn btn--primary">Odeslat</button>
+      </form>
+      <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="logo logo--footer">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#dandelion"></use></svg>
+        FeelWell
+      </a>
+      <p>Duševní zdraví je premisou společenské udržitelnosti.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Odkazy v patičce">
+      <a href="#nas">O nás</a>
+      <a href="#vize">Vize</a>
+      <a href="#projekty">Projekty</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="https://www.feelwell.cz/privacy-policy" target="_blank" rel="noopener">Privacy policy</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> FeelWell</span>
+    <p class="footer-funding">
+      <img src="assets/img/eu-logo.png" alt="Vlajka Evropské unie" width="26" height="17">
+      Spolufinancováno
+      <a href="https://www.feelwell.cz/_files/ugd/638ac9_7a230899fb204668b571b12247ecc36e.docx?dn=Publicita_Jdu%20do%20sebe.docx" target="_blank" rel="noopener">Evropskou unií</a>
+      · Číslo projektu
+      <a href="https://www.podporujemeinovace.cz/jdu-do-sebe-2/" target="_blank" rel="noopener">CZ.03.03.01/00/23_051/0005145</a>
+    </p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Zvětšený náhled obrázku">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Zavřít">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.7l-1.42-1.41L9.17 12 2.88 5.71 4.3 4.29l6.29 6.3 6.29-6.3z"/></svg>
+  </button>
+  <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí obrázek">
+    <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M15.4 6.6 9 13l6.4 6.4-1.4 1.4L6.2 13l7.8-7.8z"/></svg>
+  </button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další obrázek">
+    <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="m8.6 6.6 7.8 7.8-7.8 7.8-1.4-1.4L13.6 14 7.2 8z"/></svg>
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
