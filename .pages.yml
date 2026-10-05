@@ -1,0 +1,134 @@
+media:
+  input: uploads
+  output: uploads
+  extensions: [jpg, jpeg, png, webp, pdf, xlsx, docx]
+
+content:
+  - name: uvod
+    label: Úvodní stránka
+    type: file
+    path: content/uvod.json
+    format: json
+    fields:
+      - { name: title, label: Hlavní nadpis, type: text, description: "Nový řádek = zalomení řádku v nadpisu." }
+      - { name: lead, label: Podnadpis, type: text }
+      - { name: button_primary, label: Text prvního tlačítka, type: string }
+      - { name: button_secondary, label: Text druhého tlačítka, type: string }
+
+  - name: trailer
+    label: Trailer
+    type: file
+    path: content/trailer.json
+    format: json
+    fields:
+      - { name: eyebrow, label: Malý nadpis nad logem, type: string }
+      - { name: title, label: Nadpis, type: text, description: "Nový řádek = zalomení řádku v nadpisu." }
+      - { name: text, label: Text, type: text }
+      - { name: button, label: Text tlačítka, type: string }
+
+  - name: o-nas
+    label: O nás
+    type: file
+    path: content/o-nas.json
+    format: json
+    fields:
+      - { name: title, label: Nadpis, type: text }
+      - { name: paragraphs, label: Odstavce, type: text, list: true }
+      - { name: photo, label: Fotografie, type: image }
+      - { name: photo_alt, label: Popis fotografie (pro nevidomé), type: string }
+
+  - name: vize
+    label: Vize
+    type: file
+    path: content/vize.json
+    format: json
+    fields:
+      - { name: title, label: Nadpis, type: text }
+      - { name: paragraphs, label: Odstavce, type: text, list: true }
+      - { name: photo, label: Fotografie, type: image }
+      - { name: photo_alt, label: Popis fotografie (pro nevidomé), type: string }
+
+  - name: tym
+    label: Tým
+    type: file
+    path: content/tym.json
+    format: json
+    fields:
+      - { name: title, label: Nadpis, type: string }
+      - { name: lead, label: Úvodní věta, type: text }
+      - name: members
+        label: Členové týmu
+        type: object
+        list: true
+        fields:
+          - { name: name, label: Jméno a tituly, type: string }
+          - { name: role, label: Role / popis, type: text }
+          - { name: photo, label: Fotografie, type: image }
+
+  - name: projekt
+    label: Projekt Daimoon
+    type: file
+    path: content/projekt.json
+    format: json
+    fields:
+      - { name: title, label: Nadpis, type: string }
+      - { name: lead, label: Úvodní odstavec, type: text, description: "Tučné písmo: obalte slovo dvěma hvězdičkami, např. **Daimoon**." }
+      - { name: paragraphs, label: Další odstavce, type: text, list: true }
+      - name: gallery
+        label: Galerie obrázků ze hry
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Obrázek, type: image }
+          - { name: alt, label: Popis obrázku (pro nevidomé), type: string }
+      - name: phases
+        label: Fáze projektu
+        type: object
+        list: true
+        fields:
+          - name: status
+            label: Stav
+            type: select
+            options:
+              values:
+                - { value: done, label: Dokončeno }
+                - { value: active, label: Probíhá }
+          - { name: title, label: Název fáze, type: string }
+          - { name: text, label: Popis, type: text }
+      - { name: reports_title, label: Nadpis seznamu zpráv, type: string }
+      - name: reports
+        label: Zprávy a dokumenty ke stažení
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Název dokumentu, type: string }
+          - { name: file, label: Nahraný soubor, type: file, description: "Buď nahrajte soubor zde, nebo vyplňte odkaz níže." }
+          - { name: url, label: Odkaz (pokud není nahrán soubor), type: string }
+
+  - name: kontakt
+    label: Kontakt
+    type: file
+    path: content/kontakt.json
+    format: json
+    fields:
+      - { name: title, label: Nadpis, type: text }
+      - { name: lead, label: Text, type: text }
+
+  - name: paticka
+    label: Patička
+    type: file
+    path: content/paticka.json
+    format: json
+    fields:
+      - { name: tagline, label: Věta v patičce, type: string }
+      - { name: privacy_url, label: Odkaz na Privacy policy, type: string }
+
+  - name: web
+    label: Nastavení webu (titulek, vyhledávače)
+    type: file
+    path: content/web.json
+    format: json
+    fields:
+      - { name: title, label: Titulek stránky (záložka prohlížeče), type: string }
+      - { name: description, label: Popis pro vyhledávače, type: text }
+      - { name: og_description, label: Popis při sdílení odkazu, type: text }

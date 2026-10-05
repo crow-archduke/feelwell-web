@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{web.title}}</title>
+<meta name="description" content="{{web.description}}">
+<meta property="og:title" content="{{web.title}}">
+<meta property="og:description" content="{{web.og_description}}">
+<meta property="og:image" content="assets/img/feature.webp">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v={{css_v}}">
+</head>
+<body>
+
+<a class="skip-link" href="#hlavni">Přeskočit na obsah</a>
+
+<svg class="sprite-defs" aria-hidden="true" focusable="false">
+  <symbol id="dandelion" viewBox="0 0 64 64">
+    <g stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none">
+      <line x1="28" y1="36" x2="45.2" y2="35.2"/>
+      <line x1="28" y1="36" x2="42.9" y2="38.2"/>
+      <line x1="28" y1="36" x2="42.0" y2="44.7"/>
+      <line x1="28" y1="36" x2="38.8" y2="46.2"/>
+      <line x1="28" y1="36" x2="34.2" y2="47.7"/>
+      <line x1="28" y1="36" x2="33.8" y2="51.4"/>
+      <line x1="28" y1="36" x2="27.3" y2="52.7"/>
+      <line x1="28" y1="36" x2="22.3" y2="51.5"/>
+      <line x1="28" y1="36" x2="19.4" y2="48.0"/>
+      <line x1="28" y1="36" x2="18.1" y2="46.4"/>
+      <line x1="28" y1="36" x2="13.2" y2="43.8"/>
+      <line x1="28" y1="36" x2="12.5" y2="41.4"/>
+      <line x1="28" y1="36" x2="14.2" y2="35.4"/>
+      <line x1="28" y1="36" x2="11.8" y2="33.2"/>
+      <line x1="28" y1="36" x2="16.1" y2="29.4"/>
+      <line x1="28" y1="36" x2="16.1" y2="26.2"/>
+      <line x1="28" y1="36" x2="20.7" y2="20.7"/>
+      <line x1="28" y1="36" x2="22.7" y2="21.5"/>
+      <line x1="28" y1="36" x2="28.3" y2="22.4"/>
+      <line x1="28" y1="36" x2="33.8" y2="20.5"/>
+      <line x1="28" y1="36" x2="36.1" y2="22.9"/>
+      <line x1="28" y1="36" x2="38.4" y2="25.6"/>
+      <line x1="28" y1="36" x2="41.8" y2="29.8"/>
+      <line x1="28" y1="36" x2="40.7" y2="32.8"/>
+      <line x1="28" y1="36" x2="30.5" y2="20.0"/>
+      <line x1="28" y1="36" x2="24.0" y2="44.0"/>
+    </g>
+    <circle cx="28" cy="36" r="1.6" fill="currentColor"/>
+
+    <!-- two seeds mid-flight -->
+    <g stroke="currentColor" stroke-width="1.1" stroke-linecap="round" fill="none">
+      <path d="M42 33 Q47 25 52 17" stroke-dasharray="0.1 3.4" opacity="0.55"/>
+      <line x1="52" y1="17" x2="50.4" y2="10.7"/>
+      <line x1="52" y1="17" x2="54.0" y2="10.8"/>
+      <line x1="52" y1="17" x2="57.0" y2="12.9"/>
+      <line x1="52" y1="17" x2="58.5" y2="16.2"/>
+      <line x1="52" y1="17" x2="57.9" y2="19.8"/>
+    </g>
+    <circle cx="52" cy="17" r="1" fill="currentColor"/>
+
+    <g stroke="currentColor" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.85">
+      <path d="M40 27 Q49 18 57 10" stroke-dasharray="0.1 3.2" opacity="0.5"/>
+      <line x1="57" y1="10" x2="56.3" y2="5.0"/>
+      <line x1="57" y1="10" x2="59.4" y2="5.6"/>
+      <line x1="57" y1="10" x2="61.5" y2="7.9"/>
+      <line x1="57" y1="10" x2="61.9" y2="11.0"/>
+    </g>
+    <circle cx="57" cy="10" r="0.8" fill="currentColor" opacity="0.85"/>
+
+    <!-- stem -->
+    <path d="M27 51 C25 56 26 60 24 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+<header class="site-header" id="top">
+  <div class="header-inner container">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#dandelion"></use></svg>
+      FeelWell
+    </a>
+
+    <nav class="main-nav" aria-label="Hlavní navigace">
+      <a href="#nas" class="nav-pill" data-color="mint">O nás</a>
+      <a href="#vize" class="nav-pill" data-color="coral">Vize</a>
+      <a href="#projekty" class="nav-pill" data-color="plum">Projekty</a>
+      <a href="#kontakt" class="nav-pill nav-pill--cta" data-color="blush">Kontakt</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobilní navigace">
+    <a href="#nas" data-color="mint">O nás</a>
+    <a href="#vize" data-color="coral">Vize</a>
+    <a href="#projekty" data-color="plum">Projekty</a>
+    <a href="#kontakt" data-color="blush">Kontakt</a>
+  </nav>
+</header>
+
+<main id="hlavni">
+
+  <!-- 1. LANDING -->
+  <section class="hero">
+    <div class="hero-glass" aria-hidden="true">
+      <span class="hero-glow hero-glow--mint"></span>
+      <span class="hero-glow hero-glow--coral"></span>
+      <span class="hero-glow hero-glow--blush"></span>
+      <span class="hero-glass-pane"></span>
+    </div>
+    <div class="container">
+      <div class="hero-inner">
+        <h1 class="vf-heading reveal">{{uvod.title|h}}</h1>
+        <p class="hero-lead reveal">{{uvod.lead}}</p>
+        <div class="hero-actions reveal">
+          <a href="#trailer" class="btn btn--primary">{{uvod.button_primary}}</a>
+          <a href="#projekty" class="btn btn--ghost">{{uvod.button_secondary}}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. VIDEO TRAILER -->
+  <section class="trailer" id="trailer">
+    <div class="trailer-rings" aria-hidden="true">
+      <span class="ring ring--1"></span>
+      <span class="ring ring--2"></span>
+      <span class="dot dot--coral"></span>
+      <span class="dot dot--mint"></span>
+      <span class="dot dot--coral2"></span>
+      <span class="dot dot--mint2"></span>
+    </div>
+
+    <div class="container trailer-grid">
+      <div class="trailer-copy reveal">
+        <p class="eyebrow eyebrow--light">{{trailer.eyebrow}}</p>
+        <img src="assets/img/logo.png" alt="Daimoon" class="game-logo" width="180" height="38">
+        <h2 class="vf-heading vf-heading--glow">{{trailer.title|h}}</h2>
+        <p>{{trailer.text}}</p>
+        <a href="#projekty" class="btn btn--outline-light">{{trailer.button}}</a>
+      </div>
+
+      <div class="trailer-video reveal">
+        <div class="phone-frame">
+          <div class="phone-notch" aria-hidden="true"></div>
+          <video
+            id="teaserVideo"
+            poster="assets/img/teaser-poster.jpg"
+            controls
+            playsinline
+            preload="metadata">
+            <source src="assets/video/daimoon-teaser.mp4" type="video/mp4">
+          </video>
+          <button class="play-btn" id="playBtn" aria-label="Přehrát trailer">
+            <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O NÁS -->
+  <section class="pillar pillar--mint pillar--photo" id="nas">
+    <div class="pillar-text-col">
+      <div class="pillar-text">
+        <h2 class="vf-heading">{{o_nas.title|h}}</h2>
+        <!--each o_nas.paragraphs-->
+        <p>{{item}}</p>
+        <!--/each-->
+      </div>
+    </div>
+    <div class="pillar-media-col reveal">
+      <img src="{{o_nas.photo|img:1600}}" alt="{{o_nas.photo_alt|attr}}" loading="lazy">
+    </div>
+  </section>
+
+  <!-- VIZE -->
+  <section class="pillar pillar--coral pillar--photo pillar--photo-reverse" id="vize">
+    <div class="pillar-text-col">
+      <div class="pillar-text">
+        <h2 class="vf-heading">{{vize.title|h}}</h2>
+        <!--each vize.paragraphs-->
+        <p>{{item}}</p>
+        <!--/each-->
+      </div>
+    </div>
+    <div class="pillar-media-col reveal">
+      <img src="{{vize.photo|img:1600}}" alt="{{vize.photo_alt|attr}}" loading="lazy">
+    </div>
+  </section>
+
+  <!-- TÝM -->
+  <section class="pillar pillar--team" id="tym">
+    <div class="container">
+      <div class="pillar-inner">
+        <h2 class="vf-heading">{{tym.title|h}}</h2>
+        <p class="pillar-lead">{{tym.lead}}</p>
+      </div>
+
+      <div class="team-grid reveal">
+        <!--each tym.members-->
+        <div class="team-card">
+          <div class="team-photo"><img src="{{item.photo|img:600}}" alt="{{item.name|attr}}" loading="lazy" width="{{item.photo|imgw:600}}" height="{{item.photo|imgh:600}}"></div>
+          <h3>{{item.name}}</h3>
+          <p>{{item.role}}</p>
+        </div>
+        <!--/each-->
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKTY -->
+  <section class="pillar pillar--plum" id="projekty">
+    <div class="container">
+      <div class="pillar-inner">
+        <h2 class="vf-heading vf-heading--glow light">{{projekt.title|h}}</h2>
+        <p class="pillar-lead light">{{projekt.lead}}</p>
+        <!--each projekt.paragraphs-->
+        <p class="light-soft">{{item}}</p>
+        <!--/each-->
+      </div>
+
+      <!-- Gallery (full container width) -->
+      <div class="gallery reveal" id="gallery" aria-label="Snímky ze hry Daimoon">
+        <!--each projekt.gallery-->
+        <button type="button" class="gallery-item" data-full="{{item.image|img:1200}}">
+          <img src="{{item.image|img:640}}" alt="{{item.alt|attr}}" loading="lazy" width="{{item.image|imgw:640}}" height="{{item.image|imgh:640}}">
+        </button>
+        <!--/each-->
+      </div>
+
+      <div class="pillar-inner">
+        <div class="phases reveal">
+          <!--each projekt.phases-->
+          <div class="phase">
+            <span class="phase-tag phase-tag--{{item.status}}">{{item.status_label}}</span>
+            <h3>{{item.title}}</h3>
+            <p class="light-soft">{{item.text}}</p>
+          </div>
+          <!--/each-->
+        </div>
+
+        <div class="funding reveal">
+          <img src="assets/img/eu-logo.png" alt="Vlajka Evropské unie" width="30" height="19">
+          <p class="light-soft">
+            Spolufinancováno <a href="https://www.feelwell.cz/_files/ugd/638ac9_7a230899fb204668b571b12247ecc36e.docx?dn=Publicita_Jdu%20do%20sebe.docx" target="_blank" rel="noopener">Evropskou unií</a><br>
+            Číslo projektu: <a href="https://www.podporujemeinovace.cz/jdu-do-sebe-2/" target="_blank" rel="noopener">CZ.03.03.01/00/23_051/0005145</a>
+          </p>
+        </div>
+
+        <div class="reports reveal">
+          <h3 class="light">{{projekt.reports_title}}</h3>
+          <ul class="report-list">
+            <!--each projekt.reports-->
+            <li><a href="{{item.href|attr}}" target="_blank" rel="noopener"><span>{{item.title}}</span><em>{{item.type_label}} ↗</em></a></li>
+            <!--/each-->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section class="pillar pillar--blush" id="kontakt">
+    <div class="container">
+      <div class="pillar-inner pillar-inner--center">
+        <h2 class="vf-heading">{{kontakt.title|h}}</h2>
+        <p class="pillar-lead">{{kontakt.lead}}</p>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <label for="email" class="sr-only">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+          <button type="submit" class="btn btn--primary">Odeslat</button>
+        </form>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="logo logo--footer">
+        <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#dandelion"></use></svg>
+        FeelWell
+      </a>
+      <p>{{paticka.tagline}}</p>
+    </div>
+    <nav class="footer-nav" aria-label="Odkazy v patičce">
+      <a href="#nas">O nás</a>
+      <a href="#vize">Vize</a>
+      <a href="#projekty">Projekty</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="{{paticka.privacy_url}}" target="_blank" rel="noopener">Privacy policy</a>
+    </nav>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> FeelWell</span>
+    <p class="footer-funding">
+      <img src="assets/img/eu-logo.png" alt="Vlajka Evropské unie" width="26" height="17">
+      Spolufinancováno
+      <a href="https://www.feelwell.cz/_files/ugd/638ac9_7a230899fb204668b571b12247ecc36e.docx?dn=Publicita_Jdu%20do%20sebe.docx" target="_blank" rel="noopener">Evropskou unií</a>
+      · Číslo projektu
+      <a href="https://www.podporujemeinovace.cz/jdu-do-sebe-2/" target="_blank" rel="noopener">CZ.03.03.01/00/23_051/0005145</a>
+    </p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Zvětšený náhled obrázku">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Zavřít">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M18.3 5.71 12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.7l-1.42-1.41L9.17 12 2.88 5.71 4.3 4.29l6.29 6.3 6.29-6.3z"/></svg>
+  </button>
+  <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí obrázek">
+    <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M15.4 6.6 9 13l6.4 6.4-1.4 1.4L6.2 13l7.8-7.8z"/></svg>
+  </button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další obrázek">
+    <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="m8.6 6.6 7.8 7.8-7.8 7.8-1.4-1.4L13.6 14 7.2 8z"/></svg>
+  </button>
+</div>
+
+<script src="script.js?v={{js_v}}"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "title": "Daimoon",
+  "lead": "Prvním a ústředním projektem FeelWell je platforma a stejnojmenná vážná digitální hra **Daimoon**, zabývající se duševním zdravím a určená primárně pro teenagery a mladé dospělé.",
+  "paragraphs": [
+    "Koncept vážné hry umožňuje zvýšit motivaci zabývat se duševním zdravím (vlastním i lidí v blízkém okolí), osvojit si prvky péče o duševní zdraví a psychohygieny, a zároveň propojit mladé lidi s poskytovateli péče o duševní zdraví — hra jim pomůže seznámit se s ekosystémem péče o duševní zdraví v Česku.",
+    "Smyslem digitální vážné hry i celé platformy je nabídnout inovativní způsob intervence a edukace: preventivně snížit psychickou zátěž, upozornit mladé lidi na stavy, během nichž je vhodné vyhledat pomoc, a samotnou pomoc zprostředkovat. Hra vhodně doplňuje stávající nabídku služeb partnerů — Národního ústavu duševního zdraví, projektu Nevypusť duši a dalších."
+  ],
+  "gallery": [
+    {
+      "image": "uploads/hra-3.webp",
+      "alt": "Postava mluví s rostlinným strážcem jezera ve hře Daimoon"
+    },
+    {
+      "image": "uploads/hra-1.webp",
+      "alt": "Zahrada s bylinkami a společníkem ve hře Daimoon"
+    },
+    {
+      "image": "uploads/hra-7.webp",
+      "alt": "Postava a housenka mezi pouštními skalami ve hře Daimoon"
+    },
+    {
+      "image": "uploads/hra-5.webp",
+      "alt": "Ztroskotaná vzducholoď v poušti ve hře Daimoon"
+    },
+    {
+      "image": "uploads/hra-2.webp",
+      "alt": "Průzkum krajiny s jezírkem ve hře Daimoon"
+    },
+    {
+      "image": "uploads/hra-4.webp",
+      "alt": "Sběr rostlin u ztroskotané lodi ve hře Daimoon"
+    }
+  ],
+  "phases": [
+    {
+      "status": "done",
+      "title": "Fáze 1 — Inkubace",
+      "text": "Výzkum, ověření konceptu a nastavení metodiky. Zjištění z inkubační fáze jsou k dispozici ve zprávách níže."
+    },
+    {
+      "status": "active",
+      "title": "Fáze 2 — Vývoj a implementace",
+      "text": "Vývoj hry a její následné zapojení do ekosystému péče o duševní zdraví v Česku. Finalizace projektu proběhne do poloviny roku 2027."
+    }
+  ],
+  "reports_title": "Zprávy z projektu",
+  "reports": [
+    {
+      "title": "Souhrnná zpráva z inkubační fáze projektu",
+      "url": "https://www.feelwell.cz/_files/ugd/638ac9_5a447ac93ceb4340a843b5df300c0a9b.pdf"
+    },
+    {
+      "title": "Souhrnné výsledky výzkumů",
+      "url": "https://www.feelwell.cz/_files/ugd/638ac9_8ea6cebfc51b445086adcc5c5424e801.pdf"
+    },
+    {
+      "title": "Statistické analýzy z výzkumu",
+      "url": "https://www.feelwell.cz/_files/ugd/638ac9_f529e1292b96467f94ec0eb52e0cb4aa.pdf"
+    },
+    {
+      "title": "Uživatelský výzkum",
+      "url": "https://www.feelwell.cz/_files/ugd/638ac9_84b5b8eb6f374eacb68929ef906760f3.pdf"
+    },
+    {
+      "title": "Data z výzkumu",
+      "url": "https://www.feelwell.cz/_files/ugd/638ac9_279e39987f754f928d31e1d710d763d4.xlsx?dn=FW%20Data%2C%20anonymizovan%C3%A1.xlsx"
+    },
+    {
+      "title": "Záznamový arch z výzkumu",
+      "url": "https://www.feelwell.cz/_files/ugd/638ac9_8227ca0212f6443ba91a5a19c5707f57.pdf"
+    },
+    {
+      "title": "Rešerše zahraničních projektů",
+      "url": "https://www.feelwell.cz/_files/ugd/638ac9_ac7784de048b45c4b27f7c004e88b912.pdf"
+    }
+  ]
+}

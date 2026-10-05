@@ -1,0 +1,31 @@
+{
+  "title": "Tým FeelWell",
+  "lead": "Odborníci na vzdělávání, duševní zdraví a sociální inovace, kteří stojí za projektem.",
+  "members": [
+    {
+      "name": "MUDr. Martin Brunovský, Ph.D.",
+      "role": "Odborník v oblasti duševního zdraví (Národní ústav duševního zdraví, Psyon)",
+      "photo": "uploads/tym-brunovsky.webp"
+    },
+    {
+      "name": "Mgr. Bohumil Kartous, Ph.D.",
+      "role": "Prorektor Vysoké školy ekonomie a managementu, expert v oblasti vzdělávání a komunikace",
+      "photo": "uploads/tym-kartous.webp"
+    },
+    {
+      "name": "Mgr. Viktor Kubát, MBA",
+      "role": "Projektový manažer, provozovatel sociální služby",
+      "photo": "uploads/tym-kubat.webp"
+    },
+    {
+      "name": "Mgr. Lucie Mannheimová",
+      "role": "Psycholožka, UX researcher",
+      "photo": "uploads/tym-mannheimova.webp"
+    },
+    {
+      "name": "Mgr. Václav Šašinka",
+      "role": "Psycholog se zaměřením na vzdělávání a psychoterapii, výzkumný pracovník",
+      "photo": "uploads/tym-sasinka.webp"
+    }
+  ]
+}
