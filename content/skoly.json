@@ -1,0 +1,54 @@
+{
+  "title": "Pro školy a psychology",
+  "lead": "Daimoon je hotová a od podzimu 2026 ji testujeme na devíti školách. Veřejně ji vydáme po vyhodnocení pilotáže v roce 2027 — školy, které se přihlásí teď, budou mezi prvními.",
+  "facts": [
+    {
+      "label": "Věk",
+      "value": "přibližně 12 až 18 let"
+    },
+    {
+      "label": "Délka",
+      "value": "zhruba 20 minut na jedno sezení"
+    },
+    {
+      "label": "Cena",
+      "value": "zdarma, bez reklam a plateb ve hře"
+    },
+    {
+      "label": "Jak se hraje",
+      "value": "na mobilu žáka"
+    },
+    {
+      "label": "Do výuky",
+      "value": "prevence, třídnické hodiny, OSV"
+    },
+    {
+      "label": "Metodika",
+      "value": "vzniká metodika pro práci se třídou"
+    }
+  ],
+  "cta_text": "Přihlásit školu do pořadníku pro rok 2027",
+  "faq_title": "Často kladené otázky",
+  "faq": [
+    {
+      "q": "Pro jaký věk je hra určená?",
+      "a": "Pro děti a dospívající přibližně od 12 do 18 let."
+    },
+    {
+      "q": "Kolik stojí?",
+      "a": "Nic. Hra je zdarma, bez reklam a bez plateb ve hře."
+    },
+    {
+      "q": "Jak dlouho se hraje?",
+      "a": "Jedno herní sezení trvá zhruba 20 minut."
+    },
+    {
+      "q": "Nahrazuje hra odbornou pomoc?",
+      "a": "Ne. Daimoon pomáhá dětem rozumět vlastním emocím a na konci nabízí rozcestník s kontakty na skutečnou pomoc. Odbornou péči nenahrazuje."
+    },
+    {
+      "q": "Kdo za hrou stojí?",
+      "a": "Hru vytváří tým FeelWell — psychologové a odborníci na vzdělávání (viz sekce Tým). Na vývoji spolupracujeme s odborníky z Národního ústavu duševního zdraví, s projektem Nevypusť duši a se školními psychology."
+    }
+  ]
+}

@@ -21,9 +21,9 @@ for (const f of fs.readdirSync(path.join(ROOT, 'content'))) {
 }
 
 // derived values for editors' simple choices
-const PHASE_LABELS = { done: 'Dokončeno', active: 'Probíhá' };
+const PHASE_LABELS = { done: 'Dokončeno', active: 'Probíhá', planned: 'Plánováno' };
 for (const p of data.projekt?.phases ?? []) {
-  p.status = p.status === 'active' ? 'active' : 'done';
+  p.status = PHASE_LABELS[p.status] ? p.status : 'done';
   p.status_label = PHASE_LABELS[p.status];
 }
 for (const r of data.projekt?.reports ?? []) {
@@ -33,7 +33,37 @@ for (const r of data.projekt?.reports ?? []) {
   if (r.file) r.href = r.file.replace(/^\//, '');
 }
 
+if (data.projekt) data.projekt.reports_count = (data.projekt.reports ?? []).length;
+for (const g of data.projekt?.gallery ?? []) g.caption ??= '';
+if (data.vize) {
+  const { source, source_url } = data.vize;
+  data.vize.source_html = source ? (source_url ? `<a href="${escHtml(source_url)}" target="_blank" rel="noopener">${escHtml(source)}</a>` : escHtml(source)) : '';
+}
+for (const c of data.paticka?.crisis_items ?? []) c.tel = String(c.number).replace(/[^\d+]/g, '');
+
+// ---------- SEO / analytics ----------
+const web = data.web ?? {};
+const siteUrl = String(web.site_url || '').replace(/\/?$/, '/');
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'FeelWell, z.s.',
+  url: siteUrl,
+  email: data.kontakt?.email,
+  description: 'Vzdělávací hry a programy o duševním zdraví pro děti a dospívající.'
+};
+data.seo = {
+  canonical: siteUrl,
+  og_image: `${siteUrl}assets/img/feature.webp`,
+  robots: web.noindex ? '<meta name="robots" content="noindex, nofollow">' : '',
+  jsonld: JSON.stringify(jsonld).replace(/</g, '\\u003c'),
+  analytics: web.plausible_domain
+    ? `<script defer data-domain="${escHtml(web.plausible_domain)}" src="https://plausible.io/js/script.js"></script>\n<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>`
+    : ''
+};
+
 // ---------- text helpers ----------
+function escHtml(s) { return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // Czech typography: never leave a single-letter word (k, s, v, z, o, u, a, i) at the end of a line
 const nbsp = (s) => {
@@ -83,12 +113,15 @@ async function render(tpl, scope) {
     for (const item of list) out.push(await render(body, { ...scope, item }));
     return out.join('');
   });
+  // conditionals
+  tpl = await replaceAsync(tpl, /<!--if ([\w.]+)-->([\s\S]*?)<!--\/if-->/g, async (_, p, body) => (get(scope, p) ? render(body, scope) : ''));
   // values
   return replaceAsync(tpl, /\{\{([\w.]+)(?:\|(\w+)(?::(\d+))?)?\}\}/g, async (_, p, filter, arg) => {
     const v = get(scope, p);
     switch (filter) {
       case 'h': return rich(v, true);
       case 'attr': return esc(v);
+      case 'raw': return String(v ?? '');
       case 'img': return (await image(v, +arg)).src;
       case 'imgw': return (await image(v, +arg)).w;
       case 'imgh': return (await image(v, +arg)).h;
@@ -110,4 +143,6 @@ const up = path.join(ROOT, 'uploads');
 if (fs.existsSync(up)) {
   fs.cpSync(up, path.join(DIST, 'uploads'), { recursive: true, filter: (s) => fs.statSync(s).isDirectory() || !IMG_EXT.test(s) });
 }
+fs.writeFileSync(path.join(DIST, 'robots.txt'), web.noindex ? 'User-agent: *\nDisallow: /\n' : `User-agent: *\nAllow: /\nSitemap: ${siteUrl}sitemap.xml\n`);
+if (!web.noindex) fs.writeFileSync(path.join(DIST, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${siteUrl}</loc></url></urlset>\n`);
 console.log(`Built dist/ (${imgCache.size} image variants)`);

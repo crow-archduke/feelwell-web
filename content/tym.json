@@ -5,27 +5,32 @@
     {
       "name": "MUDr. Martin Brunovský, Ph.D.",
       "role": "Odborník v oblasti duševního zdraví (Národní ústav duševního zdraví, Psyon)",
-      "photo": "uploads/tym-brunovsky.webp"
+      "photo": "uploads/tym-brunovsky.webp",
+      "project_role": ""
     },
     {
       "name": "Mgr. Bohumil Kartous, Ph.D.",
       "role": "Prorektor Vysoké školy ekonomie a managementu, expert v oblasti vzdělávání a komunikace",
-      "photo": "uploads/tym-kartous.webp"
+      "photo": "uploads/tym-kartous.webp",
+      "project_role": ""
     },
     {
       "name": "Mgr. Viktor Kubát, MBA",
       "role": "Projektový manažer, provozovatel sociální služby",
-      "photo": "uploads/tym-kubat.webp"
+      "photo": "uploads/tym-kubat.webp",
+      "project_role": ""
     },
     {
       "name": "Mgr. Lucie Mannheimová",
       "role": "Psycholožka, UX researcher",
-      "photo": "uploads/tym-mannheimova.webp"
+      "photo": "uploads/tym-mannheimova.webp",
+      "project_role": ""
     },
     {
       "name": "Mgr. Václav Šašinka",
       "role": "Psycholog se zaměřením na vzdělávání a psychoterapii, výzkumný pracovník",
-      "photo": "uploads/tym-sasinka.webp"
+      "photo": "uploads/tym-sasinka.webp",
+      "project_role": ""
     }
   ]
 }

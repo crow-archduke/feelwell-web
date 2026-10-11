@@ -3,12 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{web.title}}</title>
-<meta name="description" content="{{web.description}}">
-<meta property="og:title" content="{{web.title}}">
-<meta property="og:description" content="{{web.og_description}}">
-<meta property="og:image" content="assets/img/feature.webp">
+<title>{{web.title|attr}}</title>
+<meta name="description" content="{{web.description|attr}}">
+<link rel="canonical" href="{{seo.canonical|attr}}">
+{{seo.robots|raw}}
+<meta property="og:title" content="{{web.title|attr}}">
+<meta property="og:description" content="{{web.og_description|attr}}">
+<meta property="og:url" content="{{seo.canonical|attr}}">
+<meta property="og:image" content="{{seo.og_image|attr}}">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{{seo.jsonld|raw}}</script>
+{{seo.analytics|raw}}
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="assets/img/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -88,6 +95,7 @@
       <a href="#nas" class="nav-pill" data-color="mint">O nás</a>
       <a href="#vize" class="nav-pill" data-color="coral">Vize</a>
       <a href="#projekty" class="nav-pill" data-color="plum">Projekty</a>
+      <a href="#skoly" class="nav-pill" data-color="mint">Pro školy</a>
       <a href="#kontakt" class="nav-pill nav-pill--cta" data-color="blush">Kontakt</a>
     </nav>
 
@@ -100,6 +108,7 @@
     <a href="#nas" data-color="mint">O nás</a>
     <a href="#vize" data-color="coral">Vize</a>
     <a href="#projekty" data-color="plum">Projekty</a>
+    <a href="#skoly" data-color="mint">Pro školy</a>
     <a href="#kontakt" data-color="blush">Kontakt</a>
   </nav>
 </header>
@@ -120,7 +129,7 @@
         <p class="hero-lead reveal">{{uvod.lead}}</p>
         <div class="hero-actions reveal">
           <a href="#trailer" class="btn btn--primary">{{uvod.button_primary}}</a>
-          <a href="#projekty" class="btn btn--ghost">{{uvod.button_secondary}}</a>
+          <a href="#skoly" class="btn btn--ghost">{{uvod.button_secondary}}</a>
         </div>
       </div>
     </div>
@@ -188,6 +197,9 @@
         <!--each vize.paragraphs-->
         <p>{{item}}</p>
         <!--/each-->
+        <!--if vize.source_html-->
+        <p class="pillar-source">{{vize.source_html|raw}}</p>
+        <!--/if-->
       </div>
     </div>
     <div class="pillar-media-col reveal">
@@ -209,6 +221,9 @@
           <div class="team-photo"><img src="{{item.photo|img:600}}" alt="{{item.name|attr}}" loading="lazy" width="{{item.photo|imgw:600}}" height="{{item.photo|imgh:600}}"></div>
           <h3>{{item.name}}</h3>
           <p>{{item.role}}</p>
+          <!--if item.project_role-->
+          <p class="team-role">{{item.project_role}}</p>
+          <!--/if-->
         </div>
         <!--/each-->
       </div>
@@ -224,14 +239,22 @@
         <!--each projekt.paragraphs-->
         <p class="light-soft">{{item}}</p>
         <!--/each-->
+        <div class="status-card reveal">
+          <h3 class="light">{{projekt.status_title}}</h3>
+          <p class="light-soft">{{projekt.status_text}}</p>
+          <a href="#kontakt" class="btn btn--outline-light" data-role="škola">{{projekt.status_button}}</a>
+        </div>
       </div>
 
       <!-- Gallery (full container width) -->
       <div class="gallery reveal" id="gallery" aria-label="Snímky ze hry Daimoon">
         <!--each projekt.gallery-->
-        <button type="button" class="gallery-item" data-full="{{item.image|img:1200}}">
-          <img src="{{item.image|img:640}}" alt="{{item.alt|attr}}" loading="lazy" width="{{item.image|imgw:640}}" height="{{item.image|imgh:640}}">
-        </button>
+        <figure class="gallery-fig">
+          <button type="button" class="gallery-item" data-full="{{item.image|img:1200}}" data-caption="{{item.caption|attr}}">
+            <img src="{{item.image|img:640}}" alt="{{item.alt|attr}}" loading="lazy" width="{{item.image|imgw:640}}" height="{{item.image|imgh:640}}">
+          </button>
+          <figcaption>{{item.caption}}</figcaption>
+        </figure>
         <!--/each-->
       </div>
 
@@ -249,19 +272,53 @@
         <div class="funding reveal">
           <img src="assets/img/eu-logo.png" alt="Vlajka Evropské unie" width="30" height="19">
           <p class="light-soft">
-            Spolufinancováno <a href="https://www.feelwell.cz/_files/ugd/638ac9_7a230899fb204668b571b12247ecc36e.docx?dn=Publicita_Jdu%20do%20sebe.docx" target="_blank" rel="noopener">Evropskou unií</a><br>
+            Spolufinancováno <a href="https://www.podporujemeinovace.cz/jdu-do-sebe-2/" target="_blank" rel="noopener">Evropskou unií</a><br>
             Číslo projektu: <a href="https://www.podporujemeinovace.cz/jdu-do-sebe-2/" target="_blank" rel="noopener">CZ.03.03.01/00/23_051/0005145</a>
           </p>
         </div>
 
-        <div class="reports reveal">
-          <h3 class="light">{{projekt.reports_title}}</h3>
+        <details class="reports reveal">
+          <summary><span>{{projekt.reports_title}}</span> <span class="reports-count">({{projekt.reports_count}})</span></summary>
+          <!--if projekt.reports_summary-->
+          <p class="light-soft reports-summary">{{projekt.reports_summary}}</p>
+          <!--/if-->
           <ul class="report-list">
             <!--each projekt.reports-->
             <li><a href="{{item.href|attr}}" target="_blank" rel="noopener"><span>{{item.title}}</span><em>{{item.type_label}} ↗</em></a></li>
             <!--/each-->
           </ul>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRO ŠKOLY -->
+  <section class="pillar pillar--mint" id="skoly">
+    <div class="container">
+      <div class="pillar-inner">
+        <h2 class="vf-heading">{{skoly.title|h}}</h2>
+        <p class="pillar-lead">{{skoly.lead}}</p>
+      </div>
+
+      <dl class="fact-grid reveal">
+        <!--each skoly.facts-->
+        <div class="fact">
+          <dt>{{item.label}}</dt>
+          <dd>{{item.value}}</dd>
         </div>
+        <!--/each-->
+      </dl>
+
+      <p class="skoly-cta"><a href="#kontakt" class="btn btn--primary" data-role="škola">{{skoly.cta_text}}</a></p>
+
+      <div class="pillar-inner faq reveal">
+        <h3>{{skoly.faq_title}}</h3>
+        <!--each skoly.faq-->
+        <details>
+          <summary>{{item.q}}</summary>
+          <p>{{item.a}}</p>
+        </details>
+        <!--/each-->
       </div>
     </div>
   </section>
@@ -273,12 +330,38 @@
         <h2 class="vf-heading">{{kontakt.title|h}}</h2>
         <p class="pillar-lead">{{kontakt.lead}}</p>
 
-        <form class="contact-form" id="contactForm" novalidate>
-          <label for="email" class="sr-only">E-mail</label>
-          <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+        <form class="contact-form" id="contactForm" novalidate
+              data-endpoint="{{kontakt.form_endpoint|attr}}" data-email="{{kontakt.email|attr}}"
+              data-success="{{kontakt.success_message|attr}}" data-error="{{kontakt.error_message|attr}}">
+          <div class="field">
+            <label for="role">Kdo se ozývá</label>
+            <select id="role" name="role">
+              <option value="">Vyberte…</option>
+              <option value="škola">Škola</option>
+              <option value="poradna">Poradna</option>
+              <option value="organizace">Organizace</option>
+              <option value="médium">Médium</option>
+              <option value="rodič">Rodič</option>
+              <option value="jiné">Jiné</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="vas@email.cz" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Zpráva</label>
+            <textarea id="message" name="message" rows="4" placeholder="S čím vám můžeme pomoci?" required></textarea>
+          </div>
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>{{kontakt.consent_text}} <a href="{{paticka.privacy_url|attr}}" target="_blank" rel="noopener">Zásady ochrany osobních údajů</a></span>
+          </label>
           <button type="submit" class="btn btn--primary">Odeslat</button>
         </form>
         <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+        <p class="contact-alt">{{kontakt.email_label}} <a href="mailto:{{kontakt.email|attr}}">{{kontakt.email}}</a></p>
       </div>
     </div>
   </section>
@@ -287,6 +370,21 @@
 </main>
 
 <footer class="site-footer">
+  <div class="container">
+    <aside class="crisis" aria-labelledby="crisisTitle">
+      <h2 id="crisisTitle">{{paticka.crisis_title}}</h2>
+      <ul class="crisis-list">
+        <!--each paticka.crisis_items-->
+        <li><a class="crisis-number" href="tel:{{item.tel|attr}}">{{item.number}}</a> <strong>{{item.label}}</strong> — {{item.text}}</li>
+        <!--/each-->
+      </ul>
+      <p class="crisis-note">{{paticka.crisis_emergency}}
+        <!--each paticka.crisis_links-->
+        <a href="{{item.url|attr}}" target="_blank" rel="noopener">{{item.title}}</a>
+        <!--/each-->
+      </p>
+    </aside>
+  </div>
   <div class="container footer-inner">
     <div class="footer-brand">
       <a href="#top" class="logo logo--footer">
@@ -294,13 +392,15 @@
         FeelWell
       </a>
       <p>{{paticka.tagline}}</p>
+      <p class="footer-org">{{paticka.organization}}</p>
     </div>
     <nav class="footer-nav" aria-label="Odkazy v patičce">
       <a href="#nas">O nás</a>
       <a href="#vize">Vize</a>
       <a href="#projekty">Projekty</a>
+      <a href="#skoly">Pro školy</a>
       <a href="#kontakt">Kontakt</a>
-      <a href="{{paticka.privacy_url}}" target="_blank" rel="noopener">Privacy policy</a>
+      <a href="{{paticka.privacy_url|attr}}" target="_blank" rel="noopener">Zásady ochrany osobních údajů</a>
     </nav>
   </div>
   <div class="container footer-bottom">
@@ -322,7 +422,8 @@
   <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Předchozí obrázek">
     <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M15.4 6.6 9 13l6.4 6.4-1.4 1.4L6.2 13l7.8-7.8z"/></svg>
   </button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <img class="lightbox-img" id="lightboxImg" alt="">
+  <p class="lightbox-caption" id="lightboxCaption"></p>
   <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Další obrázek">
     <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="m8.6 6.6 7.8 7.8-7.8 7.8-1.4-1.4L13.6 14 7.2 8z"/></svg>
   </button>

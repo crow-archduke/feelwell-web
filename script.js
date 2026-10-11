@@ -43,6 +43,7 @@ const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
 const lightboxPrev = document.getElementById('lightboxPrev');
 const lightboxNext = document.getElementById('lightboxNext');
+const lightboxCaption = document.getElementById('lightboxCaption');
 
 if (galleryItems.length && lightbox && lightboxImg) {
   let currentIndex = 0;
@@ -53,6 +54,7 @@ if (galleryItems.length && lightbox && lightboxImg) {
     const item = galleryItems[currentIndex];
     lightboxImg.src = item.dataset.full;
     lightboxImg.alt = item.querySelector('img').alt;
+    if (lightboxCaption) lightboxCaption.textContent = item.dataset.caption || '';
   }
 
   function openLightbox(index) {
@@ -88,6 +90,12 @@ if (galleryItems.length && lightbox && lightboxImg) {
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
     if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    if (e.key === 'Tab') {
+      const focusable = [lightboxClose, lightboxPrev, lightboxNext];
+      const i = focusable.indexOf(document.activeElement);
+      e.preventDefault();
+      focusable[(i + (e.shiftKey ? -1 : 1) + focusable.length) % focusable.length].focus();
+    }
   });
 }
 
@@ -99,29 +107,70 @@ if (video && playBtn) {
   playBtn.addEventListener('click', () => {
     video.play();
   });
-  video.addEventListener('play', () => playBtn.classList.add('is-hidden'));
+  video.addEventListener('play', () => { playBtn.classList.add('is-hidden'); track('Trailer prehran'); });
   video.addEventListener('pause', () => playBtn.classList.remove('is-hidden'));
   video.addEventListener('ended', () => playBtn.classList.remove('is-hidden'));
 }
 
-// Contact form (front-end only — wire to a real backend such as Formspree
-// or Netlify Forms before this site goes live)
+// Analytics events (no-op unless a Plausible domain is configured)
+const track = (name) => { if (typeof window.plausible === 'function') window.plausible(name); };
+
+// Contact form
 const contactForm = document.getElementById('contactForm');
 const formNote = document.getElementById('formNote');
 
 if (contactForm && formNote) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const emailInput = document.getElementById('email');
-    const email = emailInput.value.trim();
-    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const { endpoint, email: contactEmail, success, error } = contactForm.dataset;
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-    if (!isValid) {
+  // "Napište nám" buttons elsewhere on the page can preselect the sender role
+  document.querySelectorAll('[data-role]').forEach(link => {
+    link.addEventListener('click', () => {
+      const select = document.getElementById('role');
+      if (select) select.value = link.dataset.role;
+    });
+  });
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(contactForm);
+    if (data.get('_gotcha')) return; // honeypot
+
+    const email = String(data.get('email') || '').trim();
+    const message = String(data.get('message') || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       formNote.textContent = 'Zadejte prosím platnou e-mailovou adresu.';
       return;
     }
-    formNote.textContent = 'Děkujeme! Ozveme se vám co nejdříve.';
-    contactForm.reset();
+    if (!message) {
+      formNote.textContent = 'Napište prosím, s čím vám můžeme pomoci.';
+      return;
+    }
+    if (!contactForm.consent.checked) {
+      formNote.textContent = 'Pro odeslání je potřeba souhlas se zpracováním údajů.';
+      return;
+    }
+
+    if (!endpoint) {
+      // No form service configured: hand the message over to the visitor's e-mail app
+      const body = `${message}\n\nOdesílatel: ${email}${data.get('role') ? `\nRole: ${data.get('role')}` : ''}`;
+      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent('Dotaz z webu FeelWell')}&body=${encodeURIComponent(body)}`;
+      formNote.textContent = 'Otevřeli jsme váš e-mailový program. Zprávu prosím odešlete.';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    try {
+      const res = await fetch(endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(res.status);
+      formNote.textContent = success;
+      contactForm.reset();
+      track('Formular odeslan');
+    } catch {
+      formNote.textContent = error;
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 }
 
@@ -161,11 +210,11 @@ function wrapWords(heading) {
   while ((node = walker.nextNode())) textNodes.push(node);
 
   textNodes.forEach(textNode => {
-    const parts = textNode.textContent.split(/(\s+)/);
+    const parts = textNode.textContent.split(/([ \t\r\n]+)/);
     const frag = document.createDocumentFragment();
     parts.forEach(part => {
       if (part === '') return;
-      if (/^\s+$/.test(part)) {
+      if (/^[ \t\r\n]+$/.test(part)) {
         frag.appendChild(document.createTextNode(part));
       } else {
         const span = document.createElement('span');
@@ -221,3 +270,5 @@ if (vfHeadings.length && !window.matchMedia('(prefers-reduced-motion: reduce)').
     if (rafId === null) rafId = requestAnimationFrame(applyWeights);
   });
 }
+
+document.querySelectorAll('.report-list a').forEach(a => a.addEventListener('click', () => track('Dokument otevren')));

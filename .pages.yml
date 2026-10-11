@@ -45,6 +45,8 @@ content:
     fields:
       - { name: title, label: Nadpis, type: text }
       - { name: paragraphs, label: Odstavce, type: text, list: true }
+      - { name: source, label: Zdroj údajů (text pod odstavci), type: string }
+      - { name: source_url, label: Odkaz na zdroj údajů, type: string, description: "Doplňte odkaz na tiskovou zprávu / data; zobrazí se jako odkaz." }
       - { name: photo, label: Fotografie, type: image }
       - { name: photo_alt, label: Popis fotografie (pro nevidomé), type: string }
 
@@ -63,6 +65,7 @@ content:
         fields:
           - { name: name, label: Jméno a tituly, type: string }
           - { name: role, label: Role / popis, type: text }
+          - { name: project_role, label: Role v projektu (volitelná věta pod popisem), type: text }
           - { name: photo, label: Fotografie, type: image }
 
   - name: projekt
@@ -74,12 +77,16 @@ content:
       - { name: title, label: Nadpis, type: string }
       - { name: lead, label: Úvodní odstavec, type: text, description: "Tučné písmo: obalte slovo dvěma hvězdičkami, např. **Daimoon**." }
       - { name: paragraphs, label: Další odstavce, type: text, list: true }
+      - { name: status_title, label: Stav hry – nadpis, type: string }
+      - { name: status_text, label: Stav hry – text, type: text }
+      - { name: status_button, label: Stav hry – text tlačítka, type: string }
       - name: gallery
         label: Galerie obrázků ze hry
         type: object
         list: true
         fields:
           - { name: image, label: Obrázek, type: image }
+          - { name: caption, label: Viditelný popisek pod obrázkem, type: string }
           - { name: alt, label: Popis obrázku (pro nevidomé), type: string }
       - name: phases
         label: Fáze projektu
@@ -93,9 +100,11 @@ content:
               values:
                 - { value: done, label: Dokončeno }
                 - { value: active, label: Probíhá }
+                - { value: planned, label: Plánováno }
           - { name: title, label: Název fáze, type: string }
           - { name: text, label: Popis, type: text }
-      - { name: reports_title, label: Nadpis seznamu zpráv, type: string }
+      - { name: reports_title, label: Nadpis seznamu dokumentů, type: string }
+      - { name: reports_summary, label: Krátké shrnutí nad seznamem dokumentů (volitelné), type: text }
       - name: reports
         label: Zprávy a dokumenty ke stažení
         type: object
@@ -113,6 +122,12 @@ content:
     fields:
       - { name: title, label: Nadpis, type: text }
       - { name: lead, label: Text, type: text }
+      - { name: email, label: E-mailová adresa, type: string }
+      - { name: email_label, label: Věta před e-mailovou adresou, type: string }
+      - { name: form_endpoint, label: Adresa formulářové služby (Formspree apod.), type: string, description: "Dokud je prázdné, formulář otevře e-mailový program návštěvníka." }
+      - { name: success_message, label: Hláška po odeslání, type: string }
+      - { name: error_message, label: Hláška při chybě, type: string }
+      - { name: consent_text, label: Text souhlasu se zpracováním údajů, type: text }
 
   - name: paticka
     label: Patička
@@ -121,7 +136,50 @@ content:
     format: json
     fields:
       - { name: tagline, label: Věta v patičce, type: string }
+      - { name: organization, label: Údaje o organizaci, type: string }
+      - { name: crisis_title, label: Blok pomoci – nadpis, type: string }
+      - name: crisis_items
+        label: Blok pomoci – linky
+        type: object
+        list: true
+        fields:
+          - { name: number, label: Telefonní číslo, type: string }
+          - { name: label, label: Název linky, type: string }
+          - { name: text, label: Popis, type: string }
+      - { name: crisis_emergency, label: Blok pomoci – věta o ohrožení života, type: string }
+      - name: crisis_links
+        label: Blok pomoci – odkazy
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Název, type: string }
+          - { name: url, label: Odkaz, type: string }
       - { name: privacy_url, label: Odkaz na Privacy policy, type: string }
+
+  - name: skoly
+    label: Pro školy
+    type: file
+    path: content/skoly.json
+    format: json
+    fields:
+      - { name: title, label: Nadpis, type: string }
+      - { name: lead, label: Úvodní odstavec, type: text }
+      - name: facts
+        label: Rychlá fakta
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Štítek, type: string }
+          - { name: value, label: Hodnota, type: string }
+      - { name: cta_text, label: Text tlačítka, type: string }
+      - { name: faq_title, label: Nadpis otázek, type: string }
+      - name: faq
+        label: Často kladené otázky
+        type: object
+        list: true
+        fields:
+          - { name: q, label: Otázka, type: string }
+          - { name: a, label: Odpověď, type: text }
 
   - name: web
     label: Nastavení webu (titulek, vyhledávače)
@@ -132,3 +190,6 @@ content:
       - { name: title, label: Titulek stránky (záložka prohlížeče), type: string }
       - { name: description, label: Popis pro vyhledávače, type: text }
       - { name: og_description, label: Popis při sdílení odkazu, type: text }
+      - { name: site_url, label: "Adresa webu (např. https://www.feelwell.cz/)", type: string, description: "Používá se pro sdílení odkazů a vyhledávače. Měňte až při přesunu na vlastní doménu." }
+      - { name: noindex, label: Skrýt před vyhledávači (vypněte po spuštění na hlavní doméně), type: boolean }
+      - { name: plausible_domain, label: Doména pro měření návštěvnosti Plausible (volitelné), type: string }

@@ -1,4 +1,29 @@
 {
-  "tagline": "Duševní zdraví je premisou společenské udržitelnosti.",
-  "privacy_url": "https://www.feelwell.cz/privacy-policy"
+  "tagline": "Vzdělávací hry a programy o duševním zdraví pro děti a dospívající.",
+  "privacy_url": "https://www.feelwell.cz/privacy-policy",
+  "organization": "FeelWell, z.s. · Salvátorská 8, 110 00 Praha 1 · IČ 17662371",
+  "crisis_title": "Potřebuješ pomoc hned?",
+  "crisis_items": [
+    {
+      "number": "116 111",
+      "label": "Linka bezpečí",
+      "text": "nonstop, zdarma a anonymně, pro děti a dospívající"
+    },
+    {
+      "number": "116 123",
+      "label": "Linka první psychické pomoci",
+      "text": "nonstop pro kohokoli"
+    }
+  ],
+  "crisis_emergency": "Při ohrožení života volej 155.",
+  "crisis_links": [
+    {
+      "title": "Nevypusť duši",
+      "url": "https://www.nevypustdusi.cz/"
+    },
+    {
+      "title": "Nepanikař",
+      "url": "https://www.nepanikar.eu/"
+    }
+  ]
 }

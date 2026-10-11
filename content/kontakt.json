@@ -1,4 +1,10 @@
 {
   "title": "Pojďme na tom\npracovat spolu.",
-  "lead": "Zastupujete školu, poradnu nebo organizaci a projekt vás zajímá? Zanechte na sebe prosím kontakt — ozveme se vám."
+  "lead": "Zastupujete školu, poradnu, organizaci nebo médium? Napište nám.",
+  "email": "info@feelwell.cz",
+  "email_label": "Nebo napište přímo na",
+  "form_endpoint": "",
+  "success_message": "Děkujeme, ozveme se nejpozději do 5 pracovních dnů.",
+  "error_message": "Odeslání se nepovedlo. Napište nám prosím přímo na info@feelwell.cz.",
+  "consent_text": "Souhlasím se zpracováním e-mailu a zprávy za účelem odpovědi na můj dotaz. Správcem je FeelWell, z.s."
 }
