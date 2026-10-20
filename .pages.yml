@@ -34,8 +34,13 @@ content:
     fields:
       - { name: title, label: Nadpis, type: text }
       - { name: paragraphs, label: Odstavce, type: text, list: true }
-      - { name: photo, label: Fotografie, type: image }
-      - { name: photo_alt, label: Popis fotografie (pro nevidomé), type: string }
+      - name: photos
+        label: Ilustrace (při každém načtení stránky se zobrazí náhodná z nich)
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Obrázek, type: image }
+          - { name: alt, label: Popis obrázku (pro nevidomé), type: string }
 
   - name: vize
     label: Vize
@@ -47,8 +52,13 @@ content:
       - { name: paragraphs, label: Odstavce, type: text, list: true }
       - { name: source, label: Zdroj údajů (text pod odstavci), type: string }
       - { name: source_url, label: Odkaz na zdroj údajů, type: string, description: "Doplňte odkaz na tiskovou zprávu / data; zobrazí se jako odkaz." }
-      - { name: photo, label: Fotografie, type: image }
-      - { name: photo_alt, label: Popis fotografie (pro nevidomé), type: string }
+      - name: photos
+        label: Ilustrace (při každém načtení stránky se zobrazí náhodná z nich)
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Obrázek, type: image }
+          - { name: alt, label: Popis obrázku (pro nevidomé), type: string }
 
   - name: tym
     label: Tým

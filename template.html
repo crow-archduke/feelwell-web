@@ -185,7 +185,8 @@
       </div>
     </div>
     <div class="pillar-media-col reveal">
-      <img src="{{o_nas.photo|img:1600}}" alt="{{o_nas.photo_alt|attr}}" loading="lazy">
+      <img data-options="{{o_nas.options_json|attr}}" alt="" loading="lazy">
+      <noscript><img src="{{o_nas.first_src|attr}}" alt="{{o_nas.first_alt|attr}}"></noscript>
     </div>
   </section>
 
@@ -203,7 +204,8 @@
       </div>
     </div>
     <div class="pillar-media-col reveal">
-      <img src="{{vize.photo|img:1600}}" alt="{{vize.photo_alt|attr}}" loading="lazy">
+      <img data-options="{{vize.options_json|attr}}" alt="" loading="lazy">
+      <noscript><img src="{{vize.first_src|attr}}" alt="{{vize.first_alt|attr}}"></noscript>
     </div>
   </section>
 

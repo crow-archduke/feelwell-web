@@ -77,9 +77,9 @@ const rich = (s, br) => {
 
 // ---------- images (resized + converted to webp) ----------
 const imgCache = new Map();
-async function image(src, width) {
+async function image(src, width, lossless = false) {
   const rel = String(src || '').replace(/^\//, '');
-  const key = `${rel}@${width}`;
+  const key = `${rel}@${width}${lossless ? 'L' : ''}`;
   if (imgCache.has(key)) return imgCache.get(key);
   const inFile = path.join(ROOT, rel);
   let res;
@@ -89,7 +89,7 @@ async function image(src, width) {
   } else {
     const hash = crypto.createHash('md5').update(fs.readFileSync(inFile)).digest('hex').slice(0, 8);
     const name = `${path.basename(rel).replace(/\.[^.]+$/, '')}-${width}-${hash}.webp`;
-    const info = await sharp(inFile).rotate().resize({ width, withoutEnlargement: true }).webp({ quality: 80 }).toFile(path.join(DIST, 'gen', name));
+    const info = await sharp(inFile).rotate().resize({ width, withoutEnlargement: true }).webp(lossless ? { lossless: true } : { quality: 80 }).toFile(path.join(DIST, 'gen', name));
     res = { src: `gen/${name}`, w: info.width, h: info.height };
   }
   imgCache.set(key, res);
@@ -128,6 +128,16 @@ async function render(tpl, scope) {
       default: return rich(v, false);
     }
   });
+}
+
+// random-illustration slots: every photo is exported losslessly (keeps the dithering intact)
+for (const key of ['o_nas', 'vize']) {
+  const photos = data[key]?.photos ?? [];
+  const options = [];
+  for (const p of photos) options.push({ src: (await image(p.image, 1600, true)).src, alt: p.alt || '' });
+  data[key].options_json = JSON.stringify(options);
+  data[key].first_src = options[0]?.src ?? '';
+  data[key].first_alt = options[0]?.alt ?? '';
 }
 
 // ---------- build ----------

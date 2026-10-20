@@ -1,3 +1,13 @@
+// Pick a random illustration for each photo slot on every page load
+document.querySelectorAll('img[data-options]').forEach(img => {
+  try {
+    const options = JSON.parse(img.dataset.options);
+    const pick = options[Math.floor(Math.random() * options.length)];
+    img.alt = pick.alt;
+    img.src = pick.src;
+  } catch { /* keep the <noscript> fallback */ }
+});
+
 // Mobile nav toggle
 const menuToggle = document.getElementById('menuToggle');
 const mobileNav = document.getElementById('mobileNav');
